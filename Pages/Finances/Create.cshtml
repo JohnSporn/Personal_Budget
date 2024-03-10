@@ -1,0 +1,48 @@
+﻿@page
+@model PersonalBudget.Pages.Finances.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Finances</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Finance.Income" class="control-label"></label>
+                <input asp-for="Finance.Income" class="form-control" />
+                <span asp-validation-for="Finance.Income" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Finance.Savings" class="control-label"></label>
+                <input asp-for="Finance.Savings" class="form-control" />
+                <span asp-validation-for="Finance.Savings" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Finance.Balance" class="control-label"></label>
+                <input asp-for="Finance.Balance" class="form-control" />
+                <span asp-validation-for="Finance.Balance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Finance.UserId" class="control-label"></label>
+                <select asp-for="Finance.UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
